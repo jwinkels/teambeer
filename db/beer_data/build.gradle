@@ -1,0 +1,253 @@
+import com.opitzconsulting.orcas.gradle.*;
+
+enum OrcasTaskType{
+   STATICS, ONE_TIME_SCRIPT, DEFAULT
+}
+
+enum BuildMode{
+  INIT, PATCH, ALWAYS
+}
+
+class XclDir{
+   String path
+   OrcasTaskType type
+   String[] paths;
+   String excludePath;
+   BuildMode mode;
+
+   XclDir(String path, OrcasTaskType type, BuildMode mode){
+      this.path = path
+      this.type = type
+      this.mode = mode;
+   }
+
+   XclDir(String path, OrcasTaskType type, String excludePath, BuildMode mode){
+      this.path        = path
+      this.type        = type
+      this.excludePath = excludePath;
+      this.mode        = mode;
+   }
+
+   XclDir(String[] paths, OrcasTaskType type){
+      this.type  = type
+      this.paths = paths
+   }
+
+   String getPath(){
+      return this.path
+   }
+
+   String toString(){
+      println this.path
+   }
+
+   String[] getPaths(){
+      return this.paths
+   }
+
+   String getExcludePath(){
+      if(this.path.endsWith('/')){
+         return (this.path + this.excludePath)
+      }else{
+         return (this.path + "/" + this.excludePath)
+      }
+   }
+
+   Boolean isActive(Project project, String path){
+
+      if( project.mode == 'init'
+          && (this.mode == BuildMode.INIT || this.mode == BuildMode.ALWAYS)
+          && project.file("${path}").exists() ){
+        return true;
+      }
+
+      if( project.mode == 'patch'
+          && (this.mode == BuildMode.PATCH || this.mode == BuildMode.ALWAYS)
+          && project.file("${path}").exists() ){
+        return true;
+      }
+
+      if( project.mode == 'dev'
+          && this.mode == BuildMode.ALWAYS
+          && project.file("${path}").exists() ){
+        return true;
+      }
+
+      return false;
+   }
+}
+
+extensions.create("orcasconfiguration", OrcasGradlePluginExtension)
+
+orcasconfiguration {
+   if (project.hasProperty("target") && project.hasProperty("username") && project.hasProperty("password")){
+      jdbcurl                      = "jdbc:oracle:thin:@" + project.target
+      username                     = project.username
+      password                     = project.password
+      loglevel                     = "info"
+      extractreplaceablesoutfolder = "src/main/sql/replaceables"
+      staticsfolder                = "src/main/sql/statics"
+      excludewhereobjecttype       = "object_name not like '%sys%'"
+      excludewheresequence         = "object_name like '%'"
+      excludewheremview            = "object_name like '%'"
+   }else{
+      def parameters = [];
+      if (!project.hasProperty("target")){
+         parameters.add("target")
+      }
+
+      if (!project.hasProperty("username")){
+         parameters.add("username")
+      }
+
+      if (!project.hasProperty("password")){
+         parameters.add("password")
+      }
+
+      throw new GradleException("Missing parameter(s): " + parameters.join(", "))               
+   }
+}
+
+def getNocompile() {
+   return startParameter.nocompile == 'false' ? true : false
+}
+
+//You can add new directories here - the order does matter!
+
+def dirs = [
+            'ddlPatchPre':         new XclDir("ddl/patch/pre",         OrcasTaskType.DEFAULT,               BuildMode.PATCH),
+            'dmlPatchPre':         new XclDir("dml/patch/pre",         OrcasTaskType.DEFAULT,               BuildMode.PATCH),
+            'sequences':           new XclDir("sequences",             OrcasTaskType.ONE_TIME_SCRIPT,       BuildMode.ALWAYS),
+            'tables':              new XclDir("tables/",               OrcasTaskType.STATICS, "tables_ddl", BuildMode.ALWAYS),
+            'tables_ddl':          new XclDir("tables/tables_ddl",     OrcasTaskType.ONE_TIME_SCRIPT,       BuildMode.ALWAYS),
+            'indexPrimaries':      new XclDir("indexes/primaries",     OrcasTaskType.ONE_TIME_SCRIPT,       BuildMode.ALWAYS),
+            'indexUniques':        new XclDir("indexes/uniques",       OrcasTaskType.ONE_TIME_SCRIPT,       BuildMode.ALWAYS),
+            'indexDefaults':       new XclDir("indexes/defaults",      OrcasTaskType.ONE_TIME_SCRIPT,       BuildMode.ALWAYS),
+            'constraintPrimaries': new XclDir("constraints/primaries", OrcasTaskType.ONE_TIME_SCRIPT,       BuildMode.ALWAYS),
+            'constraintForeigns':  new XclDir("constraints/foreigns",  OrcasTaskType.ONE_TIME_SCRIPT,       BuildMode.ALWAYS),
+            'constraintChecks':    new XclDir("constraints/checks",    OrcasTaskType.ONE_TIME_SCRIPT,       BuildMode.ALWAYS),
+            'constraintUniques':   new XclDir("constraints/uniques",   OrcasTaskType.ONE_TIME_SCRIPT,       BuildMode.ALWAYS),
+            'contexts':            new XclDir("contexts",              OrcasTaskType.DEFAULT,               BuildMode.ALWAYS),
+            'policies':            new XclDir("policies",              OrcasTaskType.DEFAULT,               BuildMode.ALWAYS),
+            'views':               new XclDir("views",                 OrcasTaskType.DEFAULT,               BuildMode.ALWAYS),
+            'functions':           new XclDir("sources/functions",     OrcasTaskType.DEFAULT,               BuildMode.ALWAYS),
+            'procedures':          new XclDir("sources/procedures",    OrcasTaskType.DEFAULT,               BuildMode.ALWAYS),
+            'objects':             new XclDir("sources/objects",       OrcasTaskType.DEFAULT,               BuildMode.ALWAYS),
+            'packages':            new XclDir("sources/packages",      OrcasTaskType.DEFAULT,               BuildMode.ALWAYS),
+            'trigger':             new XclDir("sources/trigger",       OrcasTaskType.DEFAULT,               BuildMode.ALWAYS),
+            'ddlPatchPost':        new XclDir("ddl/patch/post",        OrcasTaskType.DEFAULT,               BuildMode.PATCH),
+            'dmlPatchPost':        new XclDir("dml/patch/post",        OrcasTaskType.DEFAULT,               BuildMode.PATCH),
+            'ddlInit':             new XclDir("ddl/init",              OrcasTaskType.ONE_TIME_SCRIPT,       BuildMode.INIT),
+            'dmlInit':             new XclDir("dml/init",              OrcasTaskType.ONE_TIME_SCRIPT,       BuildMode.INIT),
+            'dmlBase':             new XclDir("dml/base",              OrcasTaskType.DEFAULT,               BuildMode.ALWAYS)
+            ]
+
+task deploy{
+   dependsOn "post${dirs.keySet().last()}"
+}
+
+def i = -1
+
+dirs.each{ key, dir ->
+
+    def srcDirectory = "${dir.getPath()}"
+    def taskName     = key
+    def logName      = key
+    def preDir       = ".hooks/pre/${dir.getPath()}" 
+    def postDir      = ".hooks/post/${dir.getPath()}"
+
+   println "${dir.getPath()}:" + (project.file(srcDirectory).exists() ? 'OK' : 'NOT FOUND')
+
+   task("pre${taskName}", type: ExecuteOrcasScriptsTask){
+      if(i!=-1){
+         dependsOn "post${dirs.keySet()[i]}"
+      }
+      scriptFiles = project.fileTree("${preDir}")
+      logname     = "${logName}-pre"
+      doFirst{
+         println "Executing pre hooks in: ${preDir}"
+      }
+
+      enabled = dir.isActive(project, preDir)
+   }
+
+   switch(dir.type){
+      case OrcasTaskType.DEFAULT:
+         task("${taskName}", type: ExecuteOrcasScriptsTask){
+            dependsOn "pre${taskName}"
+
+            def files   = [];
+            logname     = "${key}"
+            scriptFiles = project.fileTree("${srcDirectory}");
+
+            doFirst{
+               println "Executing scripts in: ${srcDirectory}"
+            }
+            
+            parameters{
+               if (project.hasProperty("mode") && project.mode == "dev"){
+                  files = new ChangedFilesOnly().getChangedFileList(project.projectDir.toString() + '/' + srcDirectory, srcDirectory);
+                  println "With files: ${files.toString()}"
+                  setModelFiles(project.files(files) as List);
+               }
+            }
+
+            enabled = dir.isActive(project, srcDirectory)
+         }
+         break
+      case OrcasTaskType.ONE_TIME_SCRIPT:
+         task("${taskName}", type: ExecuteOrcasOneTimeScriptsTask){
+            dependsOn "pre${taskName}"
+            scriptfolder = "${srcDirectory}"
+            logname      = "${key}"
+
+            doFirst{
+               println "Executing scripts just once in: ${srcDirectory}"
+            }
+            enabled = dir.isActive(project, srcDirectory)
+         }
+         break
+      case OrcasTaskType.STATICS:
+         task("${taskName}", type:  OrcasUpdateStaticsTask){
+            dependsOn "pre${taskName}"
+            scriptFiles = project.fileTree(dir: '.',
+                                          includes:["${srcDirectory}"],
+                                          excludes:["${dir.getExcludePath()}"]
+                                       )
+            logname     = "${key}"
+
+            doFirst{
+               println "Updating tables from: ${srcDirectory}"
+            }
+            enabled = dir.isActive(project, srcDirectory)
+            
+            parameters{
+               setAdditionalOrcasExtensionFactory{
+                  Class pModelClass, boolean pReverseMode -> [new AutomaticIndex(), new UpperCasePKTablespace()];
+               }
+
+               if(project.hasProperty("tables")){
+                  println "deploying just changed tables ${project.tables.split(",").collect{ it.toUpperCase() }}"
+                  setRelevantTables(project.tables.split(",").collect{ it.toUpperCase() })
+               }
+            }
+         }
+         break
+      default:
+         task("${taskName}"){
+            println "No valid Task found!!"
+         }
+   }
+
+   task("post${taskName}", type: ExecuteOrcasScriptsTask){
+      dependsOn "${taskName}"
+      scriptFiles = project.fileTree("${postDir}")
+      logname     = "${logName}"
+      doFirst{
+         println "Executing post hooks in: ${postDir}"
+      }
+
+      enabled = dir.isActive(project, postDir)
+   }
+   i = i + 1
+}
