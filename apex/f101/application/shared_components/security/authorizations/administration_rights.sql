@@ -15,7 +15,7 @@ wwv_flow_imp_shared.create_security_scheme(
  p_id=>wwv_flow_imp.id(2204089956107800)
 ,p_name=>'Administration Rights'
 ,p_scheme_type=>'NATIVE_FUNCTION_BODY'
-,p_attribute_01=>'return true;'
+,p_attribute_01=>'return beer_logic.player.is_administrator(:APP_PLAYER_ID);'
 ,p_error_message=>'Insufficient privileges, user is not an Administrator'
 ,p_caching=>'BY_USER_BY_PAGE_VIEW'
 );

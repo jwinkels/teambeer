@@ -4,5 +4,6 @@ create or replace package player_edit is
     procedure save_fee;
     procedure pay_fees;
     procedure drink;
+    procedure load_drinks;
 end;
 /

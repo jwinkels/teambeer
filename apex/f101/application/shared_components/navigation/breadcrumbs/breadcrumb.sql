@@ -33,6 +33,12 @@ wwv_flow_imp_shared.create_menu_option(
 ,p_link=>'f?p=&APP_ID.:20:&APP_SESSION.::&DEBUG.:::'
 ,p_page_id=>20
 );
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(2917573449424805)
+,p_short_name=>unistr('Meine Getr\00E4nke')
+,p_link=>'f?p=&APP_ID.:5:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>5
+);
 wwv_flow_imp.component_end;
 end;
 /

@@ -20,7 +20,7 @@ wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(2632638946730432)
 ,p_list_item_display_sequence=>20
 ,p_list_item_link_text=>unistr('Getr\00E4nke')
-,p_list_item_link_target=>'javascript:drink()'
+,p_list_item_link_target=>'f?p=&APP_ID.:3:&SESSION.::&DEBUG.:3:::'
 ,p_list_item_icon=>'fa-beer'
 ,p_list_text_01=>'Nimm dir ein Bier'
 ,p_list_item_current_type=>'TARGET_PAGE'

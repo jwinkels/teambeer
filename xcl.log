@@ -15106,3 +15106,1270 @@ BUILD SUCCESSFUL in 4s
 21 actionable tasks: 21 executed
 2022-09-16 17:46:01: post-data-hooks
 2022-09-16 17:46:01: post-data-hooks done
+2022-09-18 14:04:16: pre-data-hooks
+2022-09-18 14:04:16: Start XCL - Deploy...
+---------------------------------------------------------------
+2022-09-18 14:04:16: pre-data-hooks done
+2022-09-18 14:04:16: Starting deployment in dev - mode...
+2022-09-18 14:04:16: SCHEMA: DATA
+2022-09-18 14:04:20: Starting a Gradle Daemon (subsequent builds will be faster)
+2022-09-18 14:04:38: > Task :buildSrc:compileJava
+2022-09-18 14:04:38: NO-SOURCE
+2022-09-18 14:04:38: > Task :buildSrc:compileGroovy
+2022-09-18 14:04:38: UP-TO-DATE
+> Task :buildSrc:processResources NO-SOURCE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :buildSrc:assemble UP-TO-DATE
+> Task :buildSrc:compileTestJava NO-SOURCE
+> Task :buildSrc:compileTestGroovy NO-SOURCE
+2022-09-18 14:04:38: > Task :buildSrc:processTestResources NO-SOURCE
+> Task :buildSrc:testClasses UP-TO-DATE
+> Task :buildSrc:test NO-SOURCE
+> Task :buildSrc:check UP-TO-DATE
+> Task :buildSrc:build UP-TO-DATE
+2022-09-18 14:04:40: > Configure project :
+ddl/patch/pre:OK
+dml/patch/pre:OK
+sequences:OK
+tables/:OK
+tables/tables_ddl:OK
+indexes/primaries:OK
+2022-09-18 14:04:40: indexes/uniques:OK
+indexes/defaults:OK
+constraints/primaries:OK
+constraints/foreigns:OK
+constraints/checks:OK
+constraints/uniques:OK
+contexts:OK
+policies:OK
+views:OK
+sources/functions:OK
+sources/procedures:OK
+sources/objects:OK
+sources/packages:OK
+sources/trigger:OK
+ddl/patch/post:OK
+dml/patch/post:OK
+ddl/init:OK
+dml/init:OK
+dml/base:OK
+
+> Task :preddlPatchPre SKIPPED
+> Task :ddlPatchPre SKIPPED
+> Task :postddlPatchPre SKIPPED
+> Task :predmlPatchPre SKIPPED
+> Task :dmlPatchPre SKIPPED
+> Task :postdmlPatchPre SKIPPED
+> Task :presequences SKIPPED
+2022-09-18 14:04:41: sequences: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\sequences
+2022-09-18 14:04:41: > Task :sequences
+Executing scripts just once in: sequences
+
+> Task :postsequences SKIPPED
+> Task :pretables SKIPPED
+2022-09-18 14:04:43: > Task :tables
+Updating tables from: tables/
+deploying just changed tables [BEER]
+2022-09-18 14:04:43: tables: starting orcas statics
+tables: loading database
+2022-09-18 14:04:48: tables: loading files
+2022-09-18 14:04:49: tables: calling additional extensions
+tables: building diff
+2022-09-18 14:04:49: tables: alter table BEER add QUANTITY NUMBER(30);
+2022-09-18 14:04:49: tables: done orcas statics
+2022-09-18 14:04:51: > Task :posttables
+2022-09-18 14:04:51: tables: execute script start
+2022-09-18 14:04:51: Executing post hooks in: .hooks/post/tables/
+2022-09-18 14:04:53: > Task :pretables_ddl
+2022-09-18 14:04:53: SKIPPED
+2022-09-18 14:04:53: > Task :tables_ddl
+2022-09-18 14:04:53: tables_ddl: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\tables\tables_ddl
+2022-09-18 14:04:53: Executing scripts just once in: tables/tables_ddl
+
+> Task :posttables_ddl SKIPPED
+> Task :preindexPrimaries SKIPPED
+2022-09-18 14:04:53: > Task :indexPrimaries
+2022-09-18 14:04:53: indexPrimaries: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\indexes\primaries
+2022-09-18 14:04:53: Executing scripts just once in: indexes/primaries
+
+> Task :postindexPrimaries SKIPPED
+> Task :preindexUniques SKIPPED
+2022-09-18 14:04:53: > Task :indexUniques
+Executing scripts just once in: indexes/uniques
+2022-09-18 14:04:53: indexUniques: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\indexes\uniques
+2022-09-18 14:04:53: > Task :postindexUniques SKIPPED
+> Task :preindexDefaults SKIPPED
+2022-09-18 14:04:53: indexDefaults: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\indexes\defaults
+2022-09-18 14:04:53: > Task :indexDefaults
+Executing scripts just once in: indexes/defaults
+
+> Task :postindexDefaults SKIPPED
+> Task :preconstraintPrimaries SKIPPED
+
+> Task :constraintPrimaries
+Executing scripts just once in: constraints/primaries
+
+> Task :postconstraintPrimaries SKIPPED
+> Task :preconstraintForeigns SKIPPED
+2022-09-18 14:04:53: constraintPrimaries: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\constraints\primaries
+2022-09-18 14:04:53: > Task :constraintForeigns
+2022-09-18 14:04:53: constraintForeigns: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\constraints\foreigns
+2022-09-18 14:04:53: Executing scripts just once in: constraints/foreigns
+
+> Task :postconstraintForeigns SKIPPED
+> Task :preconstraintChecks SKIPPED
+2022-09-18 14:04:53: > Task :constraintChecks
+Executing scripts just once in: constraints/checks
+2022-09-18 14:04:53: constraintChecks: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\constraints\checks
+2022-09-18 14:04:53: > Task :postconstraintChecks SKIPPED
+> Task :preconstraintUniques SKIPPED
+2022-09-18 14:04:53: > Task :constraintUniques
+Executing scripts just once in: constraints/uniques
+2022-09-18 14:04:53: constraintUniques: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\constraints\uniques
+2022-09-18 14:04:53: > Task :postconstraintUniques SKIPPED
+> Task :precontexts SKIPPED
+2022-09-18 14:04:54: > Task :contexts
+Executing scripts in: contexts
+With files: []
+2022-09-18 14:04:54: contexts: execute script start
+2022-09-18 14:04:54: > Task :postcontexts SKIPPED
+> Task :prepolicies SKIPPED
+2022-09-18 14:04:54: policies: execute script start
+2022-09-18 14:04:54: > Task :policies
+Executing scripts in: policies
+With files: []
+
+> Task :postpolicies SKIPPED
+> Task :previews SKIPPED
+2022-09-18 14:04:54: > Task :views
+2022-09-18 14:04:54: views: execute script start
+2022-09-18 14:04:54: Executing scripts in: views
+With files: []
+
+> Task :postviews SKIPPED
+> Task :prefunctions SKIPPED
+2022-09-18 14:04:55: functions: execute script start
+2022-09-18 14:04:55: > Task :functions
+Executing scripts in: sources/functions
+With files: []
+
+> Task :postfunctions SKIPPED
+> Task :preprocedures SKIPPED
+2022-09-18 14:04:55: > Task :procedures
+Executing scripts in: sources/procedures
+2022-09-18 14:04:55: procedures: execute script start
+2022-09-18 14:04:55: With files: []
+
+> Task :postprocedures SKIPPED
+> Task :preobjects SKIPPED
+2022-09-18 14:04:55: > Task :objects
+Executing scripts in: sources/objects
+With files: []
+2022-09-18 14:04:55: objects: execute script start
+2022-09-18 14:04:55: > Task :postobjects SKIPPED
+> Task :prepackages SKIPPED
+2022-09-18 14:04:55: > Task :packages
+Executing scripts in: sources/packages
+2022-09-18 14:04:55: packages: execute script start
+2022-09-18 14:04:55: With files: []
+2022-09-18 14:04:56: > Task :postpackages
+2022-09-18 14:04:56: packages: execute script start
+2022-09-18 14:04:56: Executing post hooks in: .hooks/post/sources/packages
+
+> Task :pretrigger SKIPPED
+2022-09-18 14:04:56: trigger: execute script start
+2022-09-18 14:04:56: > Task :trigger
+Executing scripts in: sources/trigger
+With files: []
+
+> Task :posttrigger SKIPPED
+> Task :preddlPatchPost SKIPPED
+> Task :ddlPatchPost SKIPPED
+> Task :postddlPatchPost SKIPPED
+> Task :predmlPatchPost SKIPPED
+> Task :dmlPatchPost SKIPPED
+> Task :postdmlPatchPost SKIPPED
+> Task :preddlInit SKIPPED
+> Task :ddlInit SKIPPED
+> Task :postddlInit SKIPPED
+> Task :predmlInit SKIPPED
+> Task :dmlInit SKIPPED
+> Task :postdmlInit SKIPPED
+> Task :predmlBase SKIPPED
+2022-09-18 14:04:56: > Task :dmlBase
+2022-09-18 14:04:56: dmlBase: execute script start
+2022-09-18 14:04:56: Executing scripts in: dml/base
+With files: []
+
+> Task :postdmlBase SKIPPED
+> Task :deploy UP-TO-DATE
+
+BUILD SUCCESSFUL in 38s
+21 actionable tasks: 21 executed
+2022-09-18 14:04:57: post-data-hooks
+2022-09-18 14:04:57: post-data-hooks done
+2022-09-19 16:13:06: Start XCL - Deploy...
+---------------------------------------------------------------
+2022-09-19 16:13:07: Starting deployment in init - mode...
+2022-09-19 16:13:07: pre-data-hooks
+2022-09-19 16:13:07: pre-data-hooks done
+2022-09-19 16:13:11: Starting a Gradle Daemon (subsequent builds will be faster)
+2022-09-19 16:13:26: > Task :buildSrc:compileJava NO-SOURCE
+2022-09-19 16:13:28: WARNING: An illegal reflective access operation has occurred
+2022-09-19 16:13:28: > Task :buildSrc:compileGroovy
+2022-09-19 16:13:28: WARNING: Illegal reflective access by org.codehaus.groovy.reflection.CachedClass (file:/C:/Users/jaw/.gradle/wrapper/dists/gradle-4.10-bin/bg6py687nqv2mbe6e1hdtk57h/gradle-4.10/lib/groovy-all-2.4.15.jar) to method java.lang.Object.finalize()
+WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.reflection.CachedClass
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2022-09-19 16:13:28: > Task :buildSrc:processResources NO-SOURCE
+> Task :buildSrc:classes
+2022-09-19 16:13:29: > Task :buildSrc:jar
+2022-09-19 16:13:29: > Task :buildSrc:assemble
+> Task :buildSrc:compileTestJava NO-SOURCE
+> Task :buildSrc:compileTestGroovy NO-SOURCE
+> Task :buildSrc:processTestResources NO-SOURCE
+> Task :buildSrc:testClasses UP-TO-DATE
+> Task :buildSrc:test NO-SOURCE
+> Task :buildSrc:check UP-TO-DATE
+> Task :buildSrc:build
+2022-09-19 16:13:29: > Configure project :
+2022-09-19 16:13:29: ddl/patch/pre:NOT FOUND
+dml/patch/pre:NOT FOUND
+sequences:NOT FOUND
+tables/:OK
+tables/tables_ddl:NOT FOUND
+indexes/primaries:NOT FOUND
+indexes/uniques:NOT FOUND
+indexes/defaults:NOT FOUND
+constraints/primaries:NOT FOUND
+constraints/foreigns:NOT FOUND
+constraints/checks:NOT FOUND
+constraints/uniques:NOT FOUND
+contexts:NOT FOUND
+policies:NOT FOUND
+views:NOT FOUND
+sources/functions:OK
+sources/procedures:NOT FOUND
+sources/objects:NOT FOUND
+sources/packages:NOT FOUND
+sources/trigger:OK
+ddl/patch/post:NOT FOUND
+dml/patch/post:NOT FOUND
+ddl/init:NOT FOUND
+dml/init:NOT FOUND
+dml/base:NOT FOUND
+
+> Task :preddlPatchPre SKIPPED
+> Task :ddlPatchPre SKIPPED
+> Task :postddlPatchPre SKIPPED
+> Task :predmlPatchPre SKIPPED
+> Task :dmlPatchPre SKIPPED
+2022-09-19 16:13:29: > Task :postdmlPatchPre SKIPPED
+> Task :presequences SKIPPED
+> Task :sequences SKIPPED
+> Task :postsequences SKIPPED
+> Task :pretables SKIPPED
+2022-09-19 16:13:31: tables: starting orcas statics
+2022-09-19 16:13:31: > Task :tables
+Updating tables from: tables/
+deploying just changed tables [BEER, DATES, PLAYER, SETTINGS]
+2022-09-19 16:13:31: tables: loading database
+2022-09-19 16:13:36: tables: loading files
+2022-09-19 16:13:36: tables: calling additional extensions
+tables: building diff
+2022-09-19 16:13:36: tables: alter table BEER add QUANTITY NUMBER(30);
+tables: done orcas statics
+2022-09-19 16:13:38: tables: execute script start
+2022-09-19 16:13:38: > Task :posttables
+Executing post hooks in: .hooks/post/tables/
+2022-09-19 16:13:40: > Task :pretables_ddl SKIPPED
+> Task :tables_ddl SKIPPED
+> Task :posttables_ddl SKIPPED
+> Task :preindexPrimaries SKIPPED
+2022-09-19 16:13:40: > Task :indexPrimaries SKIPPED
+> Task :postindexPrimaries SKIPPED
+> Task :preindexUniques SKIPPED
+> Task :indexUniques SKIPPED
+> Task :postindexUniques SKIPPED
+> Task :preindexDefaults SKIPPED
+> Task :indexDefaults SKIPPED
+> Task :postindexDefaults SKIPPED
+> Task :preconstraintPrimaries SKIPPED
+> Task :constraintPrimaries SKIPPED
+> Task :postconstraintPrimaries SKIPPED
+> Task :preconstraintForeigns SKIPPED
+> Task :constraintForeigns SKIPPED
+> Task :postconstraintForeigns SKIPPED
+> Task :preconstraintChecks SKIPPED
+> Task :constraintChecks SKIPPED
+> Task :postconstraintChecks SKIPPED
+> Task :preconstraintUniques SKIPPED
+> Task :constraintUniques SKIPPED
+> Task :postconstraintUniques SKIPPED
+> Task :precontexts SKIPPED
+2022-09-19 16:13:40: functions: execute script start
+2022-09-19 16:13:40: > Task :contexts SKIPPED
+> Task :postcontexts SKIPPED
+> Task :prepolicies SKIPPED
+> Task :policies SKIPPED
+> Task :postpolicies SKIPPED
+> Task :previews SKIPPED
+> Task :views SKIPPED
+> Task :postviews SKIPPED
+> Task :prefunctions SKIPPED
+
+> Task :functions
+Executing scripts in: sources/functions
+
+> Task :postfunctions SKIPPED
+> Task :preprocedures SKIPPED
+> Task :procedures SKIPPED
+> Task :postprocedures SKIPPED
+> Task :preobjects SKIPPED
+> Task :objects SKIPPED
+> Task :postobjects SKIPPED
+> Task :prepackages SKIPPED
+> Task :packages SKIPPED
+2022-09-19 16:13:40: packages: execute script start
+2022-09-19 16:13:40: > Task :postpackages
+Executing post hooks in: .hooks/post/sources/packages
+
+> Task :pretrigger SKIPPED
+2022-09-19 16:13:40: trigger: execute script start
+2022-09-19 16:13:40: > Task :trigger
+Executing scripts in: sources/trigger
+
+> Task :posttrigger SKIPPED
+> Task :preddlPatchPost SKIPPED
+> Task :ddlPatchPost SKIPPED
+> Task :postddlPatchPost SKIPPED
+> Task :predmlPatchPost SKIPPED
+> Task :dmlPatchPost SKIPPED
+> Task :postdmlPatchPost SKIPPED
+> Task :preddlInit SKIPPED
+> Task :ddlInit SKIPPED
+> Task :postddlInit SKIPPED
+> Task :predmlInit SKIPPED
+> Task :dmlInit SKIPPED
+> Task :postdmlInit SKIPPED
+> Task :predmlBase SKIPPED
+> Task :dmlBase SKIPPED
+> Task :postdmlBase SKIPPED
+> Task :deploy UP-TO-DATE
+
+BUILD SUCCESSFUL in 31s
+5 actionable tasks: 5 executed
+2022-09-19 16:13:40: post-data-hooks
+2022-09-19 16:13:40: post-data-hooks done
+2022-09-19 16:13:47: warning: could not open directory 'dist/1.0/db/beer_logic/tables/': No such file or directory
+2022-09-19 16:13:47: pre-logic-hooks
+2022-09-19 16:13:47: pre-logic-hooks done
+2022-09-19 16:13:49: > Task :buildSrc:compileJava NO-SOURCE
+2022-09-19 16:13:50: > Task :buildSrc:compileGroovy
+2022-09-19 16:13:50: WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.codehaus.groovy.reflection.CachedClass (file:/C:/Users/jaw/.gradle/wrapper/dists/gradle-4.10-bin/bg6py687nqv2mbe6e1hdtk57h/gradle-4.10/lib/groovy-all-2.4.15.jar) to method java.lang.Object.finalize()
+WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.reflection.CachedClass
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2022-09-19 16:13:50: > Task :buildSrc:processResources NO-SOURCE
+> Task :buildSrc:classes
+> Task :buildSrc:jar
+> Task :buildSrc:assemble
+> Task :buildSrc:compileTestJava NO-SOURCE
+> Task :buildSrc:compileTestGroovy NO-SOURCE
+> Task :buildSrc:processTestResources NO-SOURCE
+> Task :buildSrc:testClasses UP-TO-DATE
+> Task :buildSrc:test NO-SOURCE
+> Task :buildSrc:check UP-TO-DATE
+> Task :buildSrc:build
+2022-09-19 16:13:51: > Configure project :
+ddl/patch/pre:NOT FOUND
+dml/patch/pre:NOT FOUND
+sequences:NOT FOUND
+tables/:NOT FOUND
+2022-09-19 16:13:51: tables/tables_ddl:NOT FOUND
+indexes/primaries:NOT FOUND
+indexes/uniques:NOT FOUND
+indexes/defaults:NOT FOUND
+constraints/primaries:NOT FOUND
+constraints/foreigns:NOT FOUND
+constraints/checks:NOT FOUND
+constraints/uniques:NOT FOUND
+contexts:NOT FOUND
+policies:NOT FOUND
+views:OK
+sources/functions:NOT FOUND
+sources/procedures:NOT FOUND
+sources/objects:NOT FOUND
+sources/packages:OK
+sources/trigger:NOT FOUND
+ddl/patch/post:NOT FOUND
+dml/patch/post:NOT FOUND
+ddl/init:NOT FOUND
+dml/init:NOT FOUND
+dml/base:NOT FOUND
+
+> Task :preddlPatchPre SKIPPED
+2022-09-19 16:13:51: > Task :ddlPatchPre SKIPPED
+2022-09-19 16:13:51: > Task :postddlPatchPre SKIPPED
+> Task :predmlPatchPre SKIPPED
+> Task :dmlPatchPre SKIPPED
+> Task :postdmlPatchPre SKIPPED
+> Task :presequences SKIPPED
+> Task :sequences SKIPPED
+> Task :postsequences SKIPPED
+> Task :pretables SKIPPED
+> Task :tables SKIPPED
+> Task :posttables SKIPPED
+> Task :pretables_ddl SKIPPED
+> Task :tables_ddl SKIPPED
+> Task :posttables_ddl SKIPPED
+> Task :preindexPrimaries
+2022-09-19 16:13:51: SKIPPED
+> Task :indexPrimaries SKIPPED
+> Task :postindexPrimaries SKIPPED
+> Task :preindexUniques SKIPPED
+> Task :indexUniques SKIPPED
+> Task :postindexUniques SKIPPED
+> Task :preindexDefaults SKIPPED
+> Task :indexDefaults SKIPPED
+> Task :postindexDefaults SKIPPED
+> Task :preconstraintPrimaries SKIPPED
+> Task :constraintPrimaries SKIPPED
+> Task :postconstraintPrimaries SKIPPED
+> Task :preconstraintForeigns SKIPPED
+> Task :constraintForeigns SKIPPED
+> Task :postconstraintForeigns SKIPPED
+> Task :preconstraintChecks SKIPPED
+> Task :constraintChecks SKIPPED
+> Task :postconstraintChecks SKIPPED
+> Task :preconstraintUniques SKIPPED
+> Task :constraintUniques SKIPPED
+> Task :postconstraintUniques SKIPPED
+> Task :precontexts SKIPPED
+> Task :contexts SKIPPED
+> Task :postcontexts SKIPPED
+> Task :prepolicies SKIPPED
+2022-09-19 16:13:51: > Task :policies SKIPPED
+> Task :postpolicies SKIPPED
+> Task :previews SKIPPED
+2022-09-19 16:13:51: views: execute script start
+2022-09-19 16:13:51: > Task :views
+Executing scripts in: views
+2022-09-19 16:13:51: > Task :postviews
+2022-09-19 16:13:51: views: execute script start
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':postviews'.
+> java.lang.RuntimeException: java.lang.RuntimeException: C:\Users\jaw\Projekte\beer\dist\1.0\db\beer_logic\.hooks\post\views\grants.sql(4): ORA-00942: Tabelle oder View nicht vorhanden
+   grant select on drinks to BEER_APP
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 4s
+2022-09-19 16:13:51: FAILED
+Executing post hooks in: .hooks/post/views
+2 actionable tasks: 2 executed
+2022-09-19 16:15:52: Start XCL - Deploy...
+---------------------------------------------------------------
+2022-09-19 16:15:52: Starting deployment in dev - mode...
+2022-09-19 16:15:52: pre-data-hooks
+2022-09-19 16:15:52: pre-data-hooks done
+2022-09-19 16:15:54: > Task :buildSrc:compileJava NO-SOURCE
+2022-09-19 16:15:54: > Task :buildSrc:compileGroovy UP-TO-DATE
+2022-09-19 16:15:54: > Task :buildSrc:processResources NO-SOURCE
+2022-09-19 16:15:54: > Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :buildSrc:assemble UP-TO-DATE
+> Task :buildSrc:compileTestJava NO-SOURCE
+> Task :buildSrc:compileTestGroovy NO-SOURCE
+> Task :buildSrc:processTestResources NO-SOURCE
+> Task :buildSrc:testClasses UP-TO-DATE
+> Task :buildSrc:test NO-SOURCE
+> Task :buildSrc:check UP-TO-DATE
+> Task :buildSrc:build UP-TO-DATE
+2022-09-19 16:15:54: > Configure project :
+ddl/patch/pre:OK
+dml/patch/pre:OK
+sequences:OK
+tables/:OK
+tables/tables_ddl:OK
+indexes/primaries:OK
+indexes/uniques:OK
+2022-09-19 16:15:54: indexes/defaults:OK
+constraints/primaries:OK
+constraints/foreigns:OK
+constraints/checks:OK
+constraints/uniques:OK
+contexts:OK
+policies:OK
+views:OK
+sources/functions:OK
+sources/procedures:OK
+sources/objects:OK
+sources/packages:OK
+sources/trigger:OK
+ddl/patch/post:OK
+dml/patch/post:OK
+ddl/init:OK
+dml/init:OK
+dml/base:OK
+
+> Task :preddlPatchPre SKIPPED
+> Task :ddlPatchPre SKIPPED
+> Task :postddlPatchPre SKIPPED
+> Task :predmlPatchPre SKIPPED
+> Task :dmlPatchPre SKIPPED
+> Task :postdmlPatchPre SKIPPED
+> Task :presequences SKIPPED
+2022-09-19 16:15:55: sequences: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\sequences
+
+FAILURE: Build failed with an exception.
+2022-09-19 16:15:55: > Task :sequences FAILED
+Executing scripts just once in: sequences
+1 actionable task: 1 executed
+2022-09-19 16:15:55: * What went wrong:
+Execution failed for task ':sequences'.
+> java.lang.RuntimeException: connection failed: jdbc-url:jdbc:oracle:thin:@192.168.56.101:1521/xepdb1 user: beer_depl[beer_data]
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 3s
+2022-09-19 16:16:58: Start XCL - Deploy...
+---------------------------------------------------------------
+2022-09-19 16:16:58: Starting deployment in dev - mode...
+2022-09-19 16:16:58: pre-data-hooks
+2022-09-19 16:16:58: pre-data-hooks done
+2022-09-19 16:17:00: > Task :buildSrc:compileJava NO-SOURCE
+2022-09-19 16:17:00: > Task :buildSrc:compileGroovy UP-TO-DATE
+> Task :buildSrc:processResources NO-SOURCE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :buildSrc:assemble UP-TO-DATE
+> Task :buildSrc:compileTestJava NO-SOURCE
+> Task :buildSrc:compileTestGroovy NO-SOURCE
+> Task :buildSrc:processTestResources NO-SOURCE
+> Task :buildSrc:testClasses UP-TO-DATE
+2022-09-19 16:17:00: > Task :buildSrc:test NO-SOURCE
+2022-09-19 16:17:00: > Task :buildSrc:check UP-TO-DATE
+> Task :buildSrc:build UP-TO-DATE
+
+> Configure project :
+ddl/patch/pre:OK
+dml/patch/pre:OK
+sequences:OK
+tables/:OK
+tables/tables_ddl:OK
+indexes/primaries:OK
+indexes/uniques:OK
+indexes/defaults:OK
+2022-09-19 16:17:00: constraints/primaries:OK
+constraints/foreigns:OK
+constraints/checks:OK
+constraints/uniques:OK
+contexts:OK
+policies:OK
+views:OK
+sources/functions:OK
+sources/procedures:OK
+sources/objects:OK
+sources/packages:OK
+sources/trigger:OK
+ddl/patch/post:OK
+dml/patch/post:OK
+ddl/init:OK
+dml/init:OK
+dml/base:OK
+
+> Task :preddlPatchPre SKIPPED
+> Task :ddlPatchPre SKIPPED
+> Task :postddlPatchPre SKIPPED
+> Task :predmlPatchPre SKIPPED
+> Task :dmlPatchPre SKIPPED
+> Task :postdmlPatchPre SKIPPED
+> Task :presequences
+2022-09-19 16:17:00: SKIPPED
+2022-09-19 16:17:00: sequences: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\sequences
+2022-09-19 16:17:00: > Task :sequences
+Executing scripts just once in: sequences
+
+> Task :postsequences SKIPPED
+> Task :pretables SKIPPED
+2022-09-19 16:17:02: tables: starting orcas statics
+tables: loading database
+tables: loading files
+tables: calling additional extensions
+tables: building diff
+tables: done orcas statics
+2022-09-19 16:17:02: > Task :tables
+Updating tables from: tables/
+deploying just changed tables [BEER]
+2022-09-19 16:17:02: > Task :posttables
+2022-09-19 16:17:02: tables: execute script start
+
+tables_ddl: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\tables\tables_ddl
+2022-09-19 16:17:02: Executing post hooks in: .hooks/post/tables/
+
+> Task :pretables_ddl SKIPPED
+
+> Task :tables_ddl
+Executing scripts just once in: tables/tables_ddl
+
+> Task :posttables_ddl SKIPPED
+> Task :preindexPrimaries SKIPPED
+2022-09-19 16:17:02: > Task :indexPrimaries
+2022-09-19 16:17:02: indexPrimaries: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\indexes\primaries
+2022-09-19 16:17:02: Executing scripts just once in: indexes/primaries
+
+> Task :postindexPrimaries SKIPPED
+> Task :preindexUniques SKIPPED
+2022-09-19 16:17:02: > Task :indexUniques
+2022-09-19 16:17:02: indexUniques: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\indexes\uniques
+
+indexDefaults: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\indexes\defaults
+2022-09-19 16:17:02: Executing scripts just once in: indexes/uniques
+
+> Task :postindexUniques SKIPPED
+> Task :preindexDefaults SKIPPED
+
+> Task :indexDefaults
+Executing scripts just once in: indexes/defaults
+
+> Task :postindexDefaults SKIPPED
+> Task :preconstraintPrimaries SKIPPED
+2022-09-19 16:17:03: constraintPrimaries: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\constraints\primaries
+2022-09-19 16:17:03: > Task :constraintPrimaries
+Executing scripts just once in: constraints/primaries
+
+> Task :postconstraintPrimaries SKIPPED
+> Task :preconstraintForeigns SKIPPED
+
+> Task :constraintForeigns
+Executing scripts just once in: constraints/foreigns
+
+> Task :postconstraintForeigns SKIPPED
+> Task :preconstraintChecks SKIPPED
+2022-09-19 16:17:03: constraintForeigns: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\constraints\foreigns
+2022-09-19 16:17:03: > Task :constraintChecks
+2022-09-19 16:17:03: constraintChecks: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\constraints\checks
+2022-09-19 16:17:03: Executing scripts just once in: constraints/checks
+
+> Task :postconstraintChecks SKIPPED
+> Task :preconstraintUniques SKIPPED
+2022-09-19 16:17:03: constraintUniques: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\constraints\uniques
+2022-09-19 16:17:03: > Task :constraintUniques
+Executing scripts just once in: constraints/uniques
+
+> Task :postconstraintUniques SKIPPED
+> Task :precontexts SKIPPED
+2022-09-19 16:17:03: > Task :contexts
+2022-09-19 16:17:03: contexts: execute script start
+2022-09-19 16:17:03: Executing scripts in: contexts
+With files: []
+
+> Task :postcontexts SKIPPED
+> Task :prepolicies SKIPPED
+2022-09-19 16:17:03: > Task :policies
+2022-09-19 16:17:03: policies: execute script start
+2022-09-19 16:17:03: Executing scripts in: policies
+With files: []
+
+> Task :postpolicies SKIPPED
+> Task :previews SKIPPED
+2022-09-19 16:17:03: > Task :views
+2022-09-19 16:17:03: views: execute script start
+2022-09-19 16:17:03: Executing scripts in: views
+With files: []
+
+> Task :postviews SKIPPED
+> Task :prefunctions SKIPPED
+2022-09-19 16:17:03: functions: execute script start
+2022-09-19 16:17:03: > Task :functions
+Executing scripts in: sources/functions
+With files: []
+
+> Task :postfunctions SKIPPED
+> Task :preprocedures SKIPPED
+2022-09-19 16:17:04: procedures: execute script start
+2022-09-19 16:17:04: > Task :procedures
+Executing scripts in: sources/procedures
+With files: []
+
+> Task :postprocedures SKIPPED
+> Task :preobjects SKIPPED
+2022-09-19 16:17:04: objects: execute script start
+2022-09-19 16:17:04: > Task :objects
+Executing scripts in: sources/objects
+With files: []
+
+> Task :postobjects SKIPPED
+> Task :prepackages SKIPPED
+2022-09-19 16:17:04: packages: execute script start
+2022-09-19 16:17:04: > Task :packages
+Executing scripts in: sources/packages
+With files: []
+
+> Task :postpackages
+Executing post hooks in: .hooks/post/sources/packages
+
+> Task :pretrigger SKIPPED
+2022-09-19 16:17:04: packages: execute script start
+2022-09-19 16:17:04: trigger: execute script start
+2022-09-19 16:17:04: > Task :trigger
+Executing scripts in: sources/trigger
+With files: []
+
+> Task :posttrigger SKIPPED
+> Task :preddlPatchPost SKIPPED
+> Task :ddlPatchPost SKIPPED
+> Task :postddlPatchPost SKIPPED
+> Task :predmlPatchPost SKIPPED
+> Task :dmlPatchPost SKIPPED
+> Task :postdmlPatchPost SKIPPED
+> Task :preddlInit SKIPPED
+> Task :ddlInit SKIPPED
+> Task :postddlInit SKIPPED
+> Task :predmlInit SKIPPED
+> Task :dmlInit SKIPPED
+> Task :postdmlInit SKIPPED
+> Task :predmlBase SKIPPED
+2022-09-19 16:17:04: > Task :dmlBase
+Executing scripts in: dml/base
+2022-09-19 16:17:04: dmlBase: execute script start
+2022-09-19 16:17:04: With files: []
+
+> Task :postdmlBase SKIPPED
+> Task :deploy UP-TO-DATE
+
+BUILD SUCCESSFUL in 6s
+21 actionable tasks: 21 executed
+2022-09-19 16:17:05: post-data-hooks
+2022-09-19 16:17:05: post-data-hooks done
+2022-09-19 16:17:06: pre-logic-hooks
+2022-09-19 16:17:06: pre-logic-hooks done
+2022-09-19 16:17:08: > Task :buildSrc:compileJava NO-SOURCE
+2022-09-19 16:17:08: > Task :buildSrc:compileGroovy UP-TO-DATE
+2022-09-19 16:17:08: > Task :buildSrc:processResources NO-SOURCE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :buildSrc:assemble UP-TO-DATE
+> Task :buildSrc:compileTestJava NO-SOURCE
+> Task :buildSrc:compileTestGroovy NO-SOURCE
+> Task :buildSrc:processTestResources NO-SOURCE
+> Task :buildSrc:testClasses UP-TO-DATE
+> Task :buildSrc:test NO-SOURCE
+2022-09-19 16:17:08: > Task :buildSrc:check UP-TO-DATE
+> Task :buildSrc:build UP-TO-DATE
+2022-09-19 16:17:08: > Configure project :
+ddl/patch/pre:OK
+dml/patch/pre:OK
+sequences:OK
+tables/:OK
+tables/tables_ddl:OK
+2022-09-19 16:17:08: indexes/primaries:OK
+indexes/uniques:OK
+indexes/defaults:OK
+constraints/primaries:OK
+constraints/foreigns:OK
+constraints/checks:OK
+constraints/uniques:OK
+contexts:OK
+policies:OK
+views:OK
+sources/functions:OK
+sources/procedures:OK
+sources/objects:OK
+sources/packages:OK
+sources/trigger:OK
+ddl/patch/post:OK
+dml/patch/post:OK
+ddl/init:OK
+dml/init:OK
+dml/base:OK
+2022-09-19 16:17:09: > Task :preddlPatchPre SKIPPED
+> Task :ddlPatchPre SKIPPED
+> Task :postddlPatchPre SKIPPED
+2022-09-19 16:17:09: > Task :predmlPatchPre SKIPPED
+> Task :dmlPatchPre SKIPPED
+> Task :postdmlPatchPre SKIPPED
+> Task :presequences SKIPPED
+2022-09-19 16:17:09: sequences: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_logic\sequences
+2022-09-19 16:17:09: > Task :sequences
+Executing scripts just once in: sequences
+
+> Task :postsequences SKIPPED
+> Task :pretables SKIPPED
+
+> Task :tables FAILED
+Updating tables from: tables/
+2022-09-19 16:17:09: FAILURE: Build failed with an exception.
+
+* Where:
+Build file 'C:\Users\jaw\Projekte\beer\db\beer_logic\build.gradle' line: 230
+
+* What went wrong:
+Execution failed for task ':tables'.
+> Could not find method split() for arguments [,] on task ':tables' of type com.opitzconsulting.orcas.gradle.OrcasUpdateStaticsTask.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 2s
+2022-09-19 16:17:09: 2 actionable tasks: 2 executed
+2022-09-19 16:18:44: Start XCL - Deploy...
+---------------------------------------------------------------
+2022-09-19 16:18:44: Starting deployment in dev - mode...
+2022-09-19 16:18:44: pre-data-hooks
+2022-09-19 16:18:44: pre-data-hooks done
+2022-09-19 16:18:46: > Task :buildSrc:compileJava NO-SOURCE
+2022-09-19 16:18:46: > Task :buildSrc:compileGroovy UP-TO-DATE
+> Task :buildSrc:processResources NO-SOURCE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :buildSrc:assemble UP-TO-DATE
+> Task :buildSrc:compileTestJava NO-SOURCE
+> Task :buildSrc:compileTestGroovy NO-SOURCE
+> Task :buildSrc:processTestResources NO-SOURCE
+> Task :buildSrc:testClasses UP-TO-DATE
+> Task :buildSrc:test NO-SOURCE
+> Task :buildSrc:check UP-TO-DATE
+> Task :buildSrc:build UP-TO-DATE
+2022-09-19 16:18:46: > Configure project :
+ddl/patch/pre:OK
+dml/patch/pre:OK
+sequences:OK
+tables/:OK
+tables/tables_ddl:OK
+indexes/primaries:OK
+indexes/uniques:OK
+indexes/defaults:OK
+constraints/primaries:OK
+constraints/foreigns:OK
+constraints/checks:OK
+constraints/uniques:OK
+contexts:OK
+policies:OK
+views:OK
+sources/functions:OK
+sources/procedures:OK
+sources/objects:OK
+sources/packages:OK
+sources/trigger:OK
+ddl/patch/post:OK
+dml/patch/post:OK
+ddl/init:OK
+dml/init:OK
+dml/base:OK
+
+> Task :preddlPatchPre SKIPPED
+> Task :ddlPatchPre SKIPPED
+> Task :postddlPatchPre SKIPPED
+> Task :predmlPatchPre SKIPPED
+> Task :dmlPatchPre SKIPPED
+> Task :postdmlPatchPre
+2022-09-19 16:18:46: SKIPPED
+> Task :presequences SKIPPED
+2022-09-19 16:18:46: sequences: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\sequences
+2022-09-19 16:18:46: > Task :sequences
+Executing scripts just once in: sequences
+
+> Task :postsequences SKIPPED
+> Task :pretables SKIPPED
+2022-09-19 16:18:47: tables: starting orcas statics
+tables: loading database
+tables: loading files
+tables: calling additional extensions
+2022-09-19 16:18:47: > Task :tables
+Updating tables from: tables/
+deploying just changed tables [BEER]
+2022-09-19 16:18:47: tables: building diff
+tables: done orcas statics
+2022-09-19 16:18:48: > Task :posttables
+2022-09-19 16:18:48: tables: execute script start
+2022-09-19 16:18:48: Executing post hooks in: .hooks/post/tables/
+
+> Task :pretables_ddl SKIPPED
+2022-09-19 16:18:48: > Task :tables_ddl
+2022-09-19 16:18:48: tables_ddl: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\tables\tables_ddl
+2022-09-19 16:18:48: Executing scripts just once in: tables/tables_ddl
+
+> Task :posttables_ddl SKIPPED
+> Task :preindexPrimaries SKIPPED
+2022-09-19 16:18:48: > Task :indexPrimaries
+2022-09-19 16:18:48: indexPrimaries: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\indexes\primaries
+
+indexUniques: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\indexes\uniques
+2022-09-19 16:18:48: Executing scripts just once in: indexes/primaries
+
+> Task :postindexPrimaries SKIPPED
+> Task :preindexUniques SKIPPED
+
+> Task :indexUniques
+Executing scripts just once in: indexes/uniques
+
+> Task :postindexUniques SKIPPED
+> Task :preindexDefaults SKIPPED
+2022-09-19 16:18:48: indexDefaults: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\indexes\defaults
+2022-09-19 16:18:48: > Task :indexDefaults
+Executing scripts just once in: indexes/defaults
+
+> Task :postindexDefaults SKIPPED
+> Task :preconstraintPrimaries SKIPPED
+
+> Task :constraintPrimaries
+Executing scripts just once in: constraints/primaries
+
+> Task :postconstraintPrimaries SKIPPED
+> Task :preconstraintForeigns SKIPPED
+2022-09-19 16:18:48: constraintPrimaries: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\constraints\primaries
+2022-09-19 16:18:48: constraintForeigns: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\constraints\foreigns
+2022-09-19 16:18:48: > Task :constraintForeigns
+Executing scripts just once in: constraints/foreigns
+
+> Task :postconstraintForeigns SKIPPED
+> Task :preconstraintChecks SKIPPED
+
+> Task :constraintChecks
+Executing scripts just once in: constraints/checks
+
+> Task :postconstraintChecks SKIPPED
+> Task :preconstraintUniques SKIPPED
+2022-09-19 16:18:48: constraintChecks: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\constraints\checks
+2022-09-19 16:18:48: constraintUniques: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_data\constraints\uniques
+2022-09-19 16:18:48: > Task :constraintUniques
+Executing scripts just once in: constraints/uniques
+
+> Task :postconstraintUniques SKIPPED
+> Task :precontexts SKIPPED
+2022-09-19 16:18:48: > Task :contexts
+2022-09-19 16:18:48: contexts: execute script start
+2022-09-19 16:18:48: Executing scripts in: contexts
+With files: []
+
+> Task :postcontexts SKIPPED
+> Task :prepolicies SKIPPED
+2022-09-19 16:18:48: > Task :policies
+2022-09-19 16:18:48: policies: execute script start
+2022-09-19 16:18:48: Executing scripts in: policies
+With files: []
+
+> Task :postpolicies SKIPPED
+> Task :previews SKIPPED
+2022-09-19 16:18:49: views: execute script start
+2022-09-19 16:18:49: > Task :views
+Executing scripts in: views
+With files: []
+
+> Task :postviews SKIPPED
+> Task :prefunctions SKIPPED
+2022-09-19 16:18:49: functions: execute script start
+2022-09-19 16:18:49: > Task :functions
+Executing scripts in: sources/functions
+With files: []
+
+> Task :postfunctions SKIPPED
+> Task :preprocedures SKIPPED
+2022-09-19 16:18:49: > Task :procedures
+2022-09-19 16:18:49: procedures: execute script start
+2022-09-19 16:18:49: Executing scripts in: sources/procedures
+With files: []
+
+> Task :postprocedures SKIPPED
+> Task :preobjects SKIPPED
+2022-09-19 16:18:49: objects: execute script start
+2022-09-19 16:18:49: > Task :objects
+Executing scripts in: sources/objects
+With files: []
+
+> Task :postobjects SKIPPED
+> Task :prepackages SKIPPED
+2022-09-19 16:18:49: packages: execute script start
+2022-09-19 16:18:49: > Task :packages
+Executing scripts in: sources/packages
+With files: []
+2022-09-19 16:18:49: packages: execute script start
+2022-09-19 16:18:49: > Task :postpackages
+Executing post hooks in: .hooks/post/sources/packages
+
+> Task :pretrigger SKIPPED
+2022-09-19 16:18:50: trigger: execute script start
+2022-09-19 16:18:50: > Task :trigger
+Executing scripts in: sources/trigger
+With files: []
+
+> Task :posttrigger SKIPPED
+> Task :preddlPatchPost SKIPPED
+> Task :ddlPatchPost SKIPPED
+> Task :postddlPatchPost SKIPPED
+> Task :predmlPatchPost SKIPPED
+> Task :dmlPatchPost SKIPPED
+> Task :postdmlPatchPost SKIPPED
+> Task :preddlInit SKIPPED
+> Task :ddlInit SKIPPED
+> Task :postddlInit SKIPPED
+> Task :predmlInit SKIPPED
+> Task :dmlInit SKIPPED
+> Task :postdmlInit SKIPPED
+> Task :predmlBase SKIPPED
+2022-09-19 16:18:50: > Task :dmlBase
+2022-09-19 16:18:50: dmlBase: execute script start
+2022-09-19 16:18:50: Executing scripts in: dml/base
+With files: []
+
+> Task :postdmlBase SKIPPED
+> Task :deploy UP-TO-DATE
+
+BUILD SUCCESSFUL in 5s
+21 actionable tasks: 21 executed
+2022-09-19 16:18:50: post-data-hooks
+2022-09-19 16:18:50: post-data-hooks done
+2022-09-19 16:18:51: pre-logic-hooks
+2022-09-19 16:18:51: pre-logic-hooks done
+2022-09-19 16:18:53: > Task :buildSrc:compileJava NO-SOURCE
+2022-09-19 16:18:53: > Task :buildSrc:compileGroovy UP-TO-DATE
+> Task :buildSrc:processResources NO-SOURCE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :buildSrc:assemble UP-TO-DATE
+> Task :buildSrc:compileTestJava NO-SOURCE
+> Task :buildSrc:compileTestGroovy NO-SOURCE
+> Task :buildSrc:processTestResources NO-SOURCE
+> Task :buildSrc:testClasses UP-TO-DATE
+> Task :buildSrc:test NO-SOURCE
+> Task :buildSrc:check UP-TO-DATE
+2022-09-19 16:18:53: > Task :buildSrc:build UP-TO-DATE
+2022-09-19 16:18:53: > Configure project :
+ddl/patch/pre:OK
+dml/patch/pre:OK
+sequences:OK
+tables/:OK
+tables/tables_ddl:OK
+2022-09-19 16:18:53: indexes/primaries:OK
+indexes/uniques:OK
+indexes/defaults:OK
+constraints/primaries:OK
+constraints/foreigns:OK
+constraints/checks:OK
+constraints/uniques:OK
+contexts:OK
+policies:OK
+views:OK
+sources/functions:OK
+sources/procedures:OK
+sources/objects:OK
+sources/packages:OK
+sources/trigger:OK
+ddl/patch/post:OK
+dml/patch/post:OK
+ddl/init:OK
+dml/init:OK
+dml/base:OK
+
+> Task :preddlPatchPre SKIPPED
+> Task :ddlPatchPre SKIPPED
+> Task :postddlPatchPre SKIPPED
+> Task :predmlPatchPre SKIPPED
+2022-09-19 16:18:53: > Task :dmlPatchPre SKIPPED
+> Task :postdmlPatchPre SKIPPED
+> Task :presequences SKIPPED
+2022-09-19 16:18:53: > Task :sequences
+Executing scripts just once in: sequences
+2022-09-19 16:18:53: sequences: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_logic\sequences
+
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file 'C:\Users\jaw\Projekte\beer\db\beer_logic\build.gradle' line: 230
+
+* What went wrong:
+Execution failed for task ':tables'.
+> Could not find method split() for arguments [,] on task ':tables' of type com.opitzconsulting.orcas.gradle.OrcasUpdateStaticsTask.
+2022-09-19 16:18:53: > Task :postsequences SKIPPED
+> Task :pretables SKIPPED
+
+> Task :tables FAILED
+Updating tables from: tables/
+2 actionable tasks: 2 executed
+2022-09-19 16:18:53: * Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 1s
+2022-09-19 16:19:12: Start XCL - Deploy...
+---------------------------------------------------------------
+2022-09-19 16:19:12: pre-logic-hooks
+2022-09-19 16:19:12: Starting deployment in dev - mode...
+2022-09-19 16:19:12: SCHEMA: LOGIC
+2022-09-19 16:19:12: pre-logic-hooks done
+2022-09-19 16:19:15: > Task :buildSrc:compileJava NO-SOURCE
+2022-09-19 16:19:15: > Task :buildSrc:compileGroovy UP-TO-DATE
+> Task :buildSrc:processResources NO-SOURCE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :buildSrc:assemble UP-TO-DATE
+> Task :buildSrc:compileTestJava NO-SOURCE
+> Task :buildSrc:compileTestGroovy NO-SOURCE
+> Task :buildSrc:processTestResources NO-SOURCE
+> Task :buildSrc:testClasses UP-TO-DATE
+> Task :buildSrc:test NO-SOURCE
+> Task :buildSrc:check UP-TO-DATE
+> Task :buildSrc:build UP-TO-DATE
+
+> Configure project :
+ddl/patch/pre:OK
+dml/patch/pre:OK
+sequences:OK
+tables/:OK
+2022-09-19 16:19:15: tables/tables_ddl:OK
+indexes/primaries:OK
+indexes/uniques:OK
+indexes/defaults:OK
+constraints/primaries:OK
+constraints/foreigns:OK
+constraints/checks:OK
+constraints/uniques:OK
+contexts:OK
+policies:OK
+views:OK
+sources/functions:OK
+sources/procedures:OK
+sources/objects:OK
+sources/packages:OK
+sources/trigger:OK
+ddl/patch/post:OK
+dml/patch/post:OK
+ddl/init:OK
+dml/init:OK
+dml/base:OK
+
+> Task :preddlPatchPre SKIPPED
+> Task :ddlPatchPre SKIPPED
+> Task :postddlPatchPre SKIPPED
+> Task :predmlPatchPre SKIPPED
+> Task :dmlPatchPre SKIPPED
+> Task :postdmlPatchPre SKIPPED
+> Task :presequences SKIPPED
+2022-09-19 16:19:15: > Task :sequences
+2022-09-19 16:19:15: sequences: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_logic\sequences
+
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file 'C:\Users\jaw\Projekte\beer\db\beer_logic\build.gradle' line: 230
+
+* What went wrong:
+Execution failed for task ':tables'.
+> Could not find method split() for arguments [,] on task ':tables' of type com.opitzconsulting.orcas.gradle.OrcasUpdateStaticsTask.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 1s
+2022-09-19 16:19:15: Executing scripts just once in: sequences
+
+> Task :postsequences SKIPPED
+> Task :pretables SKIPPED
+
+> Task :tables FAILED
+Updating tables from: tables/
+2 actionable tasks: 2 executed
+2022-09-19 16:19:15: post-logic-hooks
+2022-09-19 16:19:15: post-logic-hooks done
+2022-09-19 16:23:22: Start XCL - Deploy...
+---------------------------------------------------------------
+2022-09-19 16:23:22: pre-logic-hooks
+2022-09-19 16:23:22: Starting deployment in dev - mode...
+2022-09-19 16:23:22: SCHEMA: LOGIC
+2022-09-19 16:23:22: pre-logic-hooks done
+2022-09-19 16:23:24: > Task :buildSrc:compileJava NO-SOURCE
+2022-09-19 16:23:24: > Task :buildSrc:compileGroovy UP-TO-DATE
+2022-09-19 16:23:24: > Task :buildSrc:processResources NO-SOURCE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :buildSrc:assemble UP-TO-DATE
+> Task :buildSrc:compileTestJava NO-SOURCE
+> Task :buildSrc:compileTestGroovy NO-SOURCE
+> Task :buildSrc:processTestResources NO-SOURCE
+> Task :buildSrc:testClasses UP-TO-DATE
+> Task :buildSrc:test NO-SOURCE
+> Task :buildSrc:check UP-TO-DATE
+> Task :buildSrc:build UP-TO-DATE
+2022-09-19 16:23:24: > Configure project :
+ddl/patch/pre:OK
+dml/patch/pre:OK
+sequences:OK
+tables/:OK
+tables/tables_ddl:OK
+indexes/primaries:OK
+indexes/uniques:OK
+indexes/defaults:OK
+constraints/primaries:OK
+constraints/foreigns:OK
+constraints/checks:OK
+constraints/uniques:OK
+contexts:OK
+policies:OK
+views:OK
+sources/functions:OK
+sources/procedures:OK
+sources/objects:OK
+sources/packages:OK
+sources/trigger:OK
+ddl/patch/post:OK
+dml/patch/post:OK
+ddl/init:OK
+dml/init:OK
+dml/base:OK
+
+> Task :preddlPatchPre SKIPPED
+> Task :ddlPatchPre SKIPPED
+2022-09-19 16:23:24: > Task :postddlPatchPre SKIPPED
+> Task :predmlPatchPre SKIPPED
+> Task :dmlPatchPre SKIPPED
+> Task :postdmlPatchPre SKIPPED
+> Task :presequences SKIPPED
+2022-09-19 16:23:24: > Task :sequences
+2022-09-19 16:23:24: sequences: execute one-time-script start: C:\Users\jaw\Projekte\beer\db\beer_logic\sequences
+
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file 'C:\Users\jaw\Projekte\beer\db\beer_logic\build.gradle' line: 230
+
+* What went wrong:
+Execution failed for task ':tables'.
+> Could not find method split() for arguments [,] on task ':tables' of type com.opitzconsulting.orcas.gradle.OrcasUpdateStaticsTask.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 1s
+2022-09-19 16:23:24: Executing scripts just once in: sequences
+
+> Task :postsequences SKIPPED
+> Task :pretables SKIPPED
+
+> Task :tables FAILED
+Updating tables from: tables/
+2 actionable tasks: 2 executed
+2022-09-19 16:23:24: post-logic-hooks
+2022-09-19 16:23:24: post-logic-hooks done

@@ -1,0 +1,207 @@
+prompt --application/pages/page_00003
+begin
+--   Manifest
+--     PAGE: 00003
+--   Manifest End
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2022.04.12'
+,p_release=>'22.1.0'
+,p_default_workspace_id=>1701155072460732
+,p_default_application_id=>101
+,p_default_id_offset=>0
+,p_default_owner=>'BEER_APP'
+);
+wwv_flow_imp_page.create_page(
+ p_id=>3
+,p_user_interface_id=>wwv_flow_imp.id(2200930326107785)
+,p_name=>unistr('Getr\00E4nke')
+,p_alias=>unistr('GETR\00C4NKE')
+,p_page_mode=>'MODAL'
+,p_step_title=>unistr('Getr\00E4nke')
+,p_autocomplete_on_off=>'OFF'
+,p_page_template_options=>'#DEFAULT#'
+,p_protection_level=>'C'
+,p_page_component_map=>'16'
+,p_last_updated_by=>'JAN'
+,p_last_upd_yyyymmddhh24miss=>'20220918135343'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(2905872609358110)
+,p_plug_name=>'BUTTON_CONTAINER'
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(2045530884107708)
+,p_plug_display_sequence=>10
+,p_include_in_reg_disp_sel_yn=>'Y'
+,p_plug_display_point=>'REGION_POSITION_03'
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(2906399208358115)
+,p_plug_name=>'CONTAINER'
+,p_region_template_options=>'#DEFAULT#:t-Region--removeHeader js-removeLandmark:t-Region--noBorder:t-Region--scrollBody'
+,p_plug_template=>wwv_flow_imp.id(2103169932107726)
+,p_plug_display_sequence=>10
+,p_include_in_reg_disp_sel_yn=>'Y'
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(2907344428358125)
+,p_plug_name=>unistr('Datum <span style="font-size: 8pt"><i>(nur wenn du nachtr\00E4glich Getr\00E4nke eintragen m\00F6chtest)</i></span>')
+,p_parent_plug_id=>wwv_flow_imp.id(2906399208358115)
+,p_region_template_options=>'#DEFAULT#:is-collapsed:t-Region--noBorder:t-Region--scrollBody'
+,p_plug_template=>wwv_flow_imp.id(2061643943107713)
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'SUB_REGIONS'
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(2906048217358112)
+,p_button_sequence=>10
+,p_button_plug_id=>wwv_flow_imp.id(2905872609358110)
+,p_button_name=>'BT_ABORT'
+,p_button_action=>'DEFINED_BY_DA'
+,p_button_template_options=>'#DEFAULT#:t-Button--iconLeft'
+,p_button_template_id=>wwv_flow_imp.id(2176147346107757)
+,p_button_image_alt=>'Abbrechen'
+,p_button_position=>'CLOSE'
+,p_warn_on_unsaved_changes=>null
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(2905911870358111)
+,p_button_sequence=>10
+,p_button_plug_id=>wwv_flow_imp.id(2905872609358110)
+,p_button_name=>'BT_SAVE'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#:t-Button--iconLeft'
+,p_button_template_id=>wwv_flow_imp.id(2176147346107757)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Prost'
+,p_button_position=>'CREATE'
+,p_icon_css_classes=>'fa-beer'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(2906143898358113)
+,p_name=>'P3_TODAY'
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_imp.id(2906399208358115)
+,p_display_as=>'NATIVE_DISPLAY_ONLY'
+,p_field_template=>wwv_flow_imp.id(2173514022107751)
+,p_item_template_options=>'#DEFAULT#'
+,p_attribute_01=>'Y'
+,p_attribute_02=>'VALUE'
+,p_attribute_04=>'Y'
+,p_attribute_05=>'PLAIN'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(2906283526358114)
+,p_name=>'P3_NUMBER_OF_DRINKS'
+,p_is_required=>true
+,p_item_sequence=>40
+,p_item_plug_id=>wwv_flow_imp.id(2906399208358115)
+,p_prompt=>unistr('Anzahl Getr\00E4nke')
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>30
+,p_field_template=>wwv_flow_imp.id(2173514022107751)
+,p_item_template_options=>'#DEFAULT#'
+,p_attribute_01=>'1'
+,p_attribute_03=>'right'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(2907069928358122)
+,p_name=>'P3_DATE_DESCRITPION'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(2906399208358115)
+,p_prompt=>'Anlass'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_lov=>'STATIC:Training;Training,Spiel;Spiel,Arbeitseinsatz;Arbeitseinsatz'
+,p_lov_display_null=>'YES'
+,p_cHeight=>1
+,p_display_when=>'not beer_logic.event.date_exists(trunc(sysdate))'
+,p_display_when2=>'PLSQL'
+,p_display_when_type=>'EXPRESSION'
+,p_field_template=>wwv_flow_imp.id(2173514022107751)
+,p_item_template_options=>'#DEFAULT#'
+,p_lov_display_extra=>'YES'
+,p_attribute_01=>'NONE'
+,p_attribute_02=>'N'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(2907259657358124)
+,p_name=>'P3_EVENT'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(2907344428358125)
+,p_item_default=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'select id from p3_dates',
+'where day = trunc(sysdate)'))
+,p_item_default_type=>'SQL_QUERY'
+,p_prompt=>'Event'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_lov=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'select event d, id r',
+'from p3_dates',
+'fetch first 2 rows only;'))
+,p_lov_display_null=>'YES'
+,p_cHeight=>1
+,p_field_template=>wwv_flow_imp.id(2173514022107751)
+,p_item_template_options=>'#DEFAULT#'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'NONE'
+,p_attribute_02=>'N'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(2907434552358126)
+,p_name=>'onClickCancel'
+,p_event_sequence=>10
+,p_triggering_element_type=>'BUTTON'
+,p_triggering_button_id=>wwv_flow_imp.id(2906048217358112)
+,p_bind_type=>'bind'
+,p_bind_event_type=>'click'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(2907585331358127)
+,p_event_id=>wwv_flow_imp.id(2907434552358126)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_DIALOG_CANCEL'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(2906494955358116)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_HEADER'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'LOAD'
+,p_process_sql_clob=>'player_edit.load_drinks;'
+,p_process_clob_language=>'PLSQL'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(2906506749358117)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'SAVE'
+,p_process_sql_clob=>'player_edit.drink;'
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_button_id=>wwv_flow_imp.id(2905911870358111)
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(2906607504358118)
+,p_process_sequence=>20
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_CLOSE_WINDOW'
+,p_process_name=>'CLOSE'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when=>'not apex_error.have_errors_occurred'
+,p_process_when_type=>'EXPRESSION'
+,p_process_when2=>'PLSQL'
+);
+wwv_flow_imp.component_end;
+end;
+/

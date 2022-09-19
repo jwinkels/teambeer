@@ -6,5 +6,4 @@ select id,
        deposit - fee balance, 
        login, 
        admin
-  from beer_data.player
-/
+  from beer_data.player;

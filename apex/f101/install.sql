@@ -102,10 +102,15 @@ prompt --install
 @@application/pages/page_00000.sql
 @@application/pages/page_00001.sql
 @@application/pages/page_00002.sql
+@@application/pages/page_00003.sql
+@@application/pages/page_00005.sql
 @@application/pages/page_00010.sql
 @@application/pages/page_00011.sql
 @@application/pages/page_00012.sql
 @@application/pages/page_00013.sql
 @@application/pages/page_00020.sql
 @@application/pages/page_09999.sql
+@@application/deployment/definition.sql
+@@application/deployment/checks.sql
+@@application/deployment/buildoptions.sql
 @@application/end_environment.sql

@@ -36,7 +36,7 @@ unistr('            apex.message.showErrors({type:"error", location: "page", mes
 ,p_protection_level=>'C'
 ,p_page_component_map=>'13'
 ,p_last_updated_by=>'JAN'
-,p_last_upd_yyyymmddhh24miss=>'20220916162912'
+,p_last_upd_yyyymmddhh24miss=>'20220919115856'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(2209889129107832)
@@ -84,20 +84,20 @@ wwv_flow_imp_page.create_report_region(
 '       BALANCE,',
 '       LOGIN,',
 '       ADMIN,',
+'       quantity || '' am (''||last_event|| '')'' drinks,',
 '       case ',
 '        when balance > 0 then ''green''',
 '        when balance = 0 then ''black''',
 '        when balance < 0 then ''red''',
 '       end as color',
-'  from P10_PLAYERS',
-' where id = :APP_PLAYER_ID'))
+'  from P1_PLAYER_DATA',
+' where id = :APP_PLAYER_ID',
+' fetch first row only;'))
 ,p_ajax_enabled=>'Y'
 ,p_lazy_loading=>false
 ,p_query_row_template=>wwv_flow_imp.id(2144019741107739)
 ,p_query_num_rows=>15
 ,p_query_options=>'DERIVED_REPORT_COLUMNS'
-,p_query_num_rows_type=>'NEXT_PREVIOUS_LINKS'
-,p_pagination_display_position=>'BOTTOM_RIGHT'
 ,p_csv_output=>'N'
 ,p_prn_output=>'N'
 ,p_sort_null=>'L'
@@ -179,8 +179,19 @@ wwv_flow_imp_page.create_report_columns(
 ,p_derived_column=>'N'
 );
 wwv_flow_imp_page.create_report_columns(
- p_id=>wwv_flow_imp.id(2626738758651517)
+ p_id=>wwv_flow_imp.id(2909310109358145)
 ,p_query_column_id=>8
+,p_column_alias=>'DRINKS'
+,p_column_display_sequence=>90
+,p_column_heading=>'letztes Mal'
+,p_use_as_row_header=>'N'
+,p_disable_sort_column=>'N'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(2626738758651517)
+,p_query_column_id=>9
 ,p_column_alias=>'COLOR'
 ,p_column_display_sequence=>80
 ,p_hidden_column=>'Y'

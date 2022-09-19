@@ -86,7 +86,7 @@ create or replace package body player as
       end if;
     end pay_fees;
 
-    function set_drinks(player_id beer_data.player.id%type, day beer_data.dates.day%type) return boolean
+    function set_drinks(player_id beer_data.player.id%type, event beer_data.dates%rowtype, quantity beer_data.beer.quantity%type) return boolean
     is
       l_date beer_data.dates%rowtype;
       l_beer beer_data.beer%rowtype;
@@ -100,24 +100,61 @@ create or replace package body player as
 
       logger.log(p_text=>'Got price: '||l_price);
 
-      l_date.id := beer_data.dates_api.get_pk_by_unique_cols(trunc(day)); 
+      l_date.id := event.id; 
       if l_date.id is null then
-        l_date.day := trunc(sysdate); 
+        l_date.day := trunc(sysdate);
+        l_date.description := event.description; 
         l_date.id := beer_data.dates_api.create_row(l_date);
         logger.log(p_text=>'Created a Date');
+      end if;
+      l_beer.id      := beer_data.beer_api.get_pk_by_unique_cols(p_player_id=>player_id, p_date_id=>l_date.id);
+
+      if l_beer.id is not null then
+        l_beer := beer_data.beer_api.read_row(l_beer.id);
       end if;
 
       l_beer.date_id := l_date.id;
       l_beer.player_id := player_id;
+      l_beer.quantity := nvl(l_beer.quantity,0) + quantity;
 
       logger.log(p_text=>'Created Beer');
       beer_data.beer_api.create_or_update_row(l_beer);
       
-      l_deposit := change_player_deposit(player_id, l_price * -1);
+      l_deposit := change_player_deposit(player_id, l_price * quantity * -1);
       logger.log(p_text=>'Charged Player');
       return true;
       exception when others then 
         return false;
     end set_drinks;
+
+    function get_drinks(player_id beer_data.player.id%type, day beer_data.dates.day%type) return number
+    is
+      l_beer     beer_data.beer%rowtype;
+      l_day      beer_data.dates.day%type := day;
+    begin
+
+      select id
+      into l_beer.date_id 
+      from beer_data.dates
+      where day = l_day;
+
+      l_beer.id := beer_data.beer_api.get_pk_by_unique_cols(p_player_id=>player_id, p_date_id=>l_beer.date_id);
+      l_beer    := beer_data.beer_api.read_row(l_beer.id);
+
+      return nvl(l_beer.quantity,0);
+
+      exception when no_data_found then
+        return 0;
+    end get_drinks;
+
+    function is_administrator(player_id beer_data.player.id%type) return boolean
+    is
+    begin
+      if beer_data.player_api.get_admin(player_id) = 'Y' then
+        return true;
+      else
+        return false;
+      end if;
+    end is_administrator;
 end;
 /

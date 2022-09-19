@@ -20,6 +20,7 @@
 /db/_setup/workspaces/.env.sql
 .gradle
 build/
-buildSrc
 .ais
 .vscode
+dist/
+*.log

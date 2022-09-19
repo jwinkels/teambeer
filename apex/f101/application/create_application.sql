@@ -34,10 +34,12 @@ wwv_flow_imp.create_flow(
 ,p_application_tab_set=>1
 ,p_logo_type=>'T'
 ,p_logo_text=>'TEAMBEER'
+,p_public_user=>'APEX_PUBLIC_USER'
 ,p_proxy_server=>nvl(wwv_flow_application_install.get_proxy,'')
 ,p_no_proxy_domains=>nvl(wwv_flow_application_install.get_no_proxy_domains,'')
-,p_flow_version=>'Release 1.0'
+,p_flow_version=>'1.0'
 ,p_flow_status=>'AVAILABLE_W_EDIT_LINK'
+,p_flow_unavailable_text=>'This application is currently unavailable at this time.'
 ,p_exact_substitutions_only=>'Y'
 ,p_browser_cache=>'N'
 ,p_browser_frame=>'D'
@@ -47,7 +49,7 @@ wwv_flow_imp.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'TEAMBEER'
 ,p_last_updated_by=>'JAN'
-,p_last_upd_yyyymmddhh24miss=>'20220916162912'
+,p_last_upd_yyyymmddhh24miss=>'20220919115856'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>4
 ,p_ui_type_name => null
@@ -55,7 +57,8 @@ wwv_flow_imp.create_flow(
 ,p_is_pwa=>'Y'
 ,p_pwa_is_installable=>'Y'
 ,p_pwa_manifest_display=>'standalone'
-,p_pwa_manifest_orientation=>'any'
+,p_pwa_manifest_orientation=>'portrait-primary'
+,p_pwa_manifest_theme_color=>'#096e2e'
 ,p_pwa_apple_status_bar_style=>'black-translucent'
 );
 wwv_flow_imp.component_end;

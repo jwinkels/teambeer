@@ -1,0 +1,1 @@
+update beer set quantity = 2 where quantity is null;

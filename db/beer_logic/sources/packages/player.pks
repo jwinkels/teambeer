@@ -6,6 +6,8 @@ as
     function change_player_fee(player_id beer_data.player.id%type, value number) return number;
     function authenticate(p_username varchar2, p_password varchar2) return number;
     function pay_fees(player_id beer_data.player.id%type) return boolean;
-    function set_drinks(player_id beer_data.player.id%type, day beer_data.dates.day%type) return boolean;
+    function set_drinks(player_id beer_data.player.id%type, event beer_data.dates%rowtype, quantity beer_data.beer.quantity%type) return boolean;
+    function get_drinks(player_id beer_data.player.id%type, day beer_data.dates.day%type) return number;
+    function is_administrator(player_id beer_data.player.id%type) return boolean;
 end player;
 /
